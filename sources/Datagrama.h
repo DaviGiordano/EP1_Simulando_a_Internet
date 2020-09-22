@@ -1,4 +1,4 @@
-#ifndef DATAGRAMA_H 
+#ifndef DATAGRAMA_H
 
 #define DATAGRAMA_H
 #include <string>
@@ -22,7 +22,8 @@ public:
 
     // USABILIDADE DO DATAGRAMA
     void processar();
-    bool ativo(); 
+        //retorna true se getTtl > 0. Retorna false se getTtl <= 0
+    bool ativo();
 
     // FUNÇÃO TESTE
     void imprimir();
