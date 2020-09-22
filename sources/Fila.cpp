@@ -31,3 +31,6 @@ bool Fila::enqueue(Datagrama *d) {
     }
 }
 
+bool Fila::isEmpty() {
+    return this->inicio == this->fim;
+}
