@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=gnu++11" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -32,6 +33,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Datagrama.cpp" />
+		<Unit filename="Datagrama.h" />
+		<Unit filename="Fila.cpp" />
+		<Unit filename="Fila.h" />
+		<Unit filename="Rede.cpp" />
+		<Unit filename="Rede.h" />
+		<Unit filename="Roteador.cpp" />
+		<Unit filename="Roteador.h" />
+		<Unit filename="TabelaDeRepasse.cpp" />
+		<Unit filename="TabelaDeRepasse.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
