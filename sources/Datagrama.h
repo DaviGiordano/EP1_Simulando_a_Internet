@@ -21,8 +21,10 @@ public:
     string getDado();
 
     // USABILIDADE DO DATAGRAMA
+
+    // Processa o datagrama decrementando o Time To Live (TTL) dele em 1
     void processar();
-        //retorna true se getTtl > 0. Retorna false se getTtl <= 0
+    //retorna true se Ttl > 0. Retorna false se Ttl <= 0
     bool ativo();
 
     // FUNÇÃO TESTE

@@ -53,33 +53,21 @@ Datagrama* Fila::dequeue(){
 }
 //!! Ainda tenho que fazer "dar a volta" quando necessário
 void Fila::imprimir(){
-    cout << "tamanho - " << this->tamanho << endl << endl;
+    cout << "tamanho disponivel - " << this->tamanho << endl << endl;
     cout << "inicio - " << this->inicio << endl << endl;
     cout << "fim - " << this->fim << endl << endl;
     cout <<  "Fila, na ordem:" << endl << endl;
 
-    for(int i = this->inicio; i != (this->fim - 1);){
+    for(int i = this->inicio; i != (this->fim);){
 
         cout <<"Posicao no vetor: " << i << endl;
         vetorDeDatagramas[i]->imprimir();
 
-        if(i == this->tamanho){
+        if(i == this->tamanho + 1){
             i = 0;
         }
         else{
             i++;
         }
     }
-
-    /*
-    int i = this->inicio;
-    while(i != this->fim){
-        if(i == this->tamanho){
-            i = 0;
-        }else{ i++; }
-        cout <<"Posição no vetor: " << i << endl;
-        vetorDeDatagramas[i]->imprimir();
-    }
-    cout<< endl;
-    */
 }

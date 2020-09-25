@@ -8,25 +8,23 @@ using namespace std;
 main(int argc, char **argv){
 
 
-    //TESTANDO MÉTODO bool Datagrama::ativo
 
-    Datagrama *pacotePrimeiro = new Datagrama(1,2,78,"oi");
-    Datagrama *pacoteSegundo = new Datagrama(3,4,0,"tchau");
-    Datagrama *pacoteTerceiro = new Datagrama(2,7,5,"Feliz");
-    Datagrama *pacoteQuarto = new Datagrama (6,7,1,"Natal");
-    //cout << "Pacote Ativo: " << endl;
-    //pacoteAtivo->imprimir();
-    //cout << "Pacote Inativo: " <<endl;
-   // pacoteInativo->imprimir();
-
+    //Datagramas dummys
+    Datagrama *pacotePrimeiro = new Datagrama(1,2,78,"Primeiro");
+    Datagrama *pacoteSegundo = new Datagrama(3,4,0,"Segundo");
+    Datagrama *pacoteTerceiro = new Datagrama(2,7,5,"Terceiro");
+    Datagrama *pacoteQuarto = new Datagrama (6,7,1,"Quarto");
+    Datagrama *pacoteQuinto = new Datagrama (9,10,5,"Quinto");
+    //fila com tres posicoes validas
     Fila *filaTeste = new Fila(3);
 
-    cout << "teste 1" << endl;
-    filaTeste->enqueue(pacotePrimeiro);
-    filaTeste->enqueue(pacoteSegundo);
-    filaTeste->enqueue(pacoteTerceiro);
- //PRECISAMOS testarrr maiss!!
-    filaTeste->enqueue(pacoteQuarto);
+    cout<< filaTeste->enqueue(pacotePrimeiro)<<endl;
+    cout    <<filaTeste->enqueue(pacoteSegundo)<<endl;
+    cout    <<filaTeste->enqueue(pacoteTerceiro)<<endl;
+    cout    <<filaTeste->enqueue(pacoteQuarto)<<endl; //FALSE esperado, deu true
+    cout <<filaTeste->enqueue(pacoteQuinto)<<endl;
+    /*problema: ele me deixou inserir um quarto pacote*/
+    /*Não me deixou inserir o quinto, bom*/
     filaTeste->imprimir();
 
 }
