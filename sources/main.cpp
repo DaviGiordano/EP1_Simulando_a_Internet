@@ -15,6 +15,7 @@ main(int argc, char **argv){
     Datagrama *pacoteTerceiro = new Datagrama(2,7,5,"Terceiro");
     Datagrama *pacoteQuarto = new Datagrama (6,7,1,"Quarto");
     Datagrama *pacoteQuinto = new Datagrama (9,10,5,"Quinto");
+    Datagrama *d;
     //fila com tres posicoes validas
     Fila *filaTeste = new Fila(3);
 
@@ -26,5 +27,16 @@ main(int argc, char **argv){
     /*problema: ele me deixou inserir um quarto pacote*/
     /*Não me deixou inserir o quinto, bom*/
     filaTeste->imprimir();
+
+
+    filaTeste->dequeue()->imprimir();
+    filaTeste->dequeue()->imprimir();
+    filaTeste->dequeue()->imprimir();
+
+    d = filaTeste->dequeue();
+
+
+
+
 
 }
