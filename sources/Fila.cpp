@@ -16,7 +16,8 @@ Fila::~Fila()
 
 bool Fila::enqueue(Datagrama *d) {
         // condicao para fila cheia
-    if ( (this->inicio == 0 && (this->fim == ((this->tamanho) + 1))) || this->fim + 1 == this->inicio) {
+
+    if ( (this->inicio == 0 && this->fim == this->tamanho ) || this->fim + 1 == this->inicio) {
         // caso cheia, retorna falso
         return false;
     } else {
@@ -24,7 +25,7 @@ bool Fila::enqueue(Datagrama *d) {
         this->vetorDeDatagramas[this->fim] = d;
 
         // e atualiza o valor de fim
-        if (this->fim == this->tamanho + 1) {
+        if (this->fim == this->tamanho) {
             this->fim = 0;
         } else  {
             this->fim += 1;
@@ -41,14 +42,14 @@ Datagrama* Fila::dequeue(){
     if(this->isEmpty()){
         return NULL;
     } else {
-
-        Datagrama* aux = this->vetorDeDatagramas[this->inicio];
-        if(this->inicio == this->tamanho + 1){
+        // TIRAR O DATAGRAMA
+        Datagrama* datagramaRetirado = this->vetorDeDatagramas[this->inicio];
+        if(this->inicio == this->tamanho){
             this->inicio = 0;
         } else {
             this->inicio += 1;
         }
-        return aux;
+        return datagramaRetirado;
     }
 }
 //!! Ainda tenho que fazer "dar a volta" quando necessário
@@ -63,7 +64,7 @@ void Fila::imprimir(){
         cout <<"Posicao no vetor: " << i << endl;
         vetorDeDatagramas[i]->imprimir();
 
-        if(i == this->tamanho + 1){
+        if(i == this->tamanho){
             i = 0;
         }
         else{
