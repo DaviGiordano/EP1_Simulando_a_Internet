@@ -16,7 +16,7 @@ Fila::~Fila()
 
 bool Fila::enqueue(Datagrama *d) {
         // condicao para fila cheia
-    if ( (this->inicio == 0 && this->fim == this->tamanho + 1 ) || this->fim + 1 == this->inicio) {
+    if ( (this->inicio == 0 && (this->fim == ((this->tamanho) + 1))) || this->fim + 1 == this->inicio) {
         // caso cheia, retorna falso
         return false;
     } else {

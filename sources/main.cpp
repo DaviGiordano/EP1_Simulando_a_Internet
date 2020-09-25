@@ -19,10 +19,10 @@ main(int argc, char **argv){
     Fila *filaTeste = new Fila(3);
 
     cout<< filaTeste->enqueue(pacotePrimeiro)<<endl;
-    cout    <<filaTeste->enqueue(pacoteSegundo)<<endl;
-    cout    <<filaTeste->enqueue(pacoteTerceiro)<<endl;
-    cout    <<filaTeste->enqueue(pacoteQuarto)<<endl; //FALSE esperado, deu true
-    cout <<filaTeste->enqueue(pacoteQuinto)<<endl;
+    cout<<filaTeste->enqueue(pacoteSegundo)<<endl;
+    cout<<filaTeste->enqueue(pacoteTerceiro)<<endl;
+    cout<<filaTeste->enqueue(pacoteQuarto)<<endl; //FALSE esperado, deu true
+    cout<<filaTeste->enqueue(pacoteQuinto)<<endl;
     /*problema: ele me deixou inserir um quarto pacote*/
     /*Não me deixou inserir o quinto, bom*/
     filaTeste->imprimir();
