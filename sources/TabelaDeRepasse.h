@@ -1,14 +1,18 @@
 #ifndef TABELADEREPASSE_H
 
 #define TABELADEREPASSE_H
-#define MAXIMO_TABELA 5
+
+
+#include "Roteador.h"
+
+class Roteador; //prototipo da Roteador
 
 class TabelaDeRepasse
 {
 private:
-    int enderecos[MAXIMO_TABELA];
-    //coloquei o nome de 'adjacentes' em vez de roteadoresAdjacentes pq o get dele é getAdjacentes, tranquilo?
-    Roteador* adjacentes[MAXIMO_TABELA];
+    int quantidadeDeAdjacentes = 0;
+    int *enderecos;
+    Roteador **adjacentes;
     Roteador *roteadorPadrao;
 
 public:
@@ -18,8 +22,9 @@ public:
     bool mapear(int endereco, Roteador* adjacente);
     Roteador** getAdjacentes();
     int getQuantidadeDeAdjacentes();
-    void setPadrao(Roteador *padrao);
+    void setPadrao(Roteador *padrao); 
     Roteador* getDestino(int endereco);
     void imprimir;
 };
+
 #endif // TABELADEREPASSE_H
