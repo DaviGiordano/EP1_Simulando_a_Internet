@@ -13,6 +13,13 @@ TabelaDeRepasse::~TabelaDeRepasse() {
 
 // GETTERS E SETTERS=========================================================
 
+Roteador** TabelaDeRepasse::getAdjacentes() {
+    return this->adjacentes;
+}
+
+int TabelaDeRepasse::getQuantidadeDeAdjacentes() {
+    return this->quantidadeDeAdjacentes;
+}
 
 //OUTROS METODOS=============================================================
 
