@@ -6,7 +6,10 @@
 // CONSTRUTOR E DESTRUTOR ===================================================
 // o construtor tem que alocar os atributos que sao vetores 
 
-
+TabelaDeRepasse::~TabelaDeRepasse() {
+    delete[] this->adjacentes;
+    delete[] this->enderecos;
+}
 
 // GETTERS E SETTERS=========================================================
 
