@@ -22,9 +22,9 @@ public:
     bool mapear(int endereco, Roteador* adjacente);
     Roteador** getAdjacentes();
     int getQuantidadeDeAdjacentes();
-    void setPadrao(Roteador *padrao); 
+    void setPadrao(Roteador *padrao);
     Roteador* getDestino(int endereco);
-    void imprimir;
+    void imprimir();
 };
 
 #endif // TABELADEREPASSE_H
