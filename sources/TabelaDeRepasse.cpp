@@ -5,11 +5,10 @@
 using namespace std;
 
 // CONSTRUTOR E DESTRUTOR ===================================================
-// o construtor tem que alocar os atributos que sao vetores
 
 TabelaDeRepasse::TabelaDeRepasse(){
     this->enderecos = new int[MAXIMO_TABELA];
-    this->adjacentes = new Roteador*[MAXIMO_TABELA];//foda de testar o roteador porque ele simplesmente não existe ainda kk
+    this->adjacentes = new Roteador*[MAXIMO_TABELA]; //foda de testar o roteador porque ele simplesmente nao existe ainda kk
     this->roteadorPadrao = NULL; //ponteiro para roteador apontando para NULL, check.
 }
 
@@ -28,8 +27,17 @@ int TabelaDeRepasse::getQuantidadeDeAdjacentes() {
     return this->quantidadeDeAdjacentes;
 }
 
-void TabelaDeRepasse::setPadrao(Roteador *padrao){
+void TabelaDeRepasse::setPadrao(Roteador *padrao) {
     this->roteadorPadrao = padrao;
+}
+
+Roteador* TabelaDeRepasse::getDestino(int endereco) {
+    for (int i = 0; i < this->quantidadeDeAdjacentes; i++) { //percorra os enderecos mapeados
+        if (endereco == this->enderecos[i]) { //se o endereco foi mapeado
+            return this->adjacentes[i]; //retorne o roteador de indice correspondente
+        }
+    }//se saiu do for sem encontrar o endereco desejado
+    return this->roteadorPadrao; //retorne o padrao
 }
 
 //OUTROS METODOS=============================================================
@@ -56,18 +64,9 @@ bool TabelaDeRepasse::mapear(int endereco, Roteador *adjacente) {
     }
 }
 
-Roteador* TabelaDeRepasse::getDestino(int endereco){
-    for(int i = 0; i<this->quantidadeDeAdjacentes; i++){ //percorra os endereços mapeados
-        if(endereco == this->enderecos[i]){ //se o endereço foi mapeado
-            return this->adjacentes[i]; //retorne o roteador de indice correspondente
-        }
-    }//se saiu do for sem encontrar o endereço desejado
-    return this->roteadorPadrao; //retorne o padrão
-}
-
 void TabelaDeRepasse::imprimir(){
     cout << this->quantidadeDeAdjacentes << endl;
-    this->roteadorPadrao->imprimir(); //supondo que um roteador possui um método imprimir
+    this->roteadorPadrao->imprimir(); //supondo que um roteador possui um metodo imprimir
     for(int i = 0; i < this->quantidadeDeAdjacentes; i++){
         cout << "Indice - " << i << endl;
         cout << "Endereco - " << this-enderecos[i] << endl;
