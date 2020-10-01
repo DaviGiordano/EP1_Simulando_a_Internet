@@ -10,7 +10,7 @@
 #define TAMANHO_FILA 3
 //Defino isso aqui ou no Roteador?
 
-class TabelaDeRepasse; //protótipo da TabelaDeRepasse
+class TabelaDeRepasse; //protï¿½tipo da TabelaDeRepasse
 
 class Roteador
 {
@@ -21,8 +21,8 @@ private:
     string ultimoDadoRecebido; //inicializar como "" aqui ou no construtor?
 
 public:
-    TabelaDeRepasse();
-    ~TabelaDeRepasse();
+    Roteador(int endereco);
+    ~Roteador();
 
     TabelaDeRepasse* getTabela();
     Fila *getFila();
