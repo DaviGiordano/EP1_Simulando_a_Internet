@@ -18,7 +18,7 @@ private:
     TabelaDeRepasse* tabela;
     Fila* fila;
     int endereco;
-    string ultimoDadoRecebido; //inicializar como "" aqui ou no construtor?
+    string ultimoDadoRecebido = ""; //inicializar como "" aqui ou no construtor?
 
 public:
     Roteador(int endereco);

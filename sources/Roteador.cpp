@@ -30,6 +30,18 @@ Roteador::~Roteador() {
 
 // GETTERS =================================================================================
 
+Fila* Roteador::getFila() {
+    return this->fila;
+}
+
+int Roteador::getEndereco() {
+    return this->endereco;
+}
+
+string Roteador::getUltimoDadoRecebido() {
+    return this->ultimoDadoRecebido;
+}
+
 /*ja tinha feito antes, quando tentava testar a TabelaDeRepasse*/
 TabelaDeRepasse* Roteador::getTabela(){
     return this->tabela;
