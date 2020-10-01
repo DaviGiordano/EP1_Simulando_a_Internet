@@ -47,8 +47,12 @@ TabelaDeRepasse* Roteador::getTabela(){
 
 // OUTROS METODOS ==========================================================================
 
+// Adiciona um datagrama a fila caso ela nao esteja cheia, caso contrario, nao adiciona o datagrama
+// e imprime uma mensagem de erro
 void Roteador::receber(Datagrama *d) {
-
+    if (!this->fila->enqueue(d)) {
+        cout << "\tFila em " << this->endereco << " estourou" << endl;
+    }
 }
 
 // void Roteador::processar() {
