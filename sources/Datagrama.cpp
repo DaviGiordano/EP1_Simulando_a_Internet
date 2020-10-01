@@ -5,6 +5,7 @@ using namespace std;
 
 // CONSTRUTOR E DESTRUTOR ===================================================
 
+// Inicializa com origem, destino, ttl e dado
 Datagrama::Datagrama(int origem, int destino, int ttl, string dado) :
 origem (origem), destino (destino), ttl (ttl), dado (dado)
 {

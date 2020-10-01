@@ -14,6 +14,7 @@ Fila::~Fila()
 {
 }
 
+// Adiciona um datagrama na fila. Retorna false caso a fila estiver cheia e true se conseguiu adicionar o datagrama
 bool Fila::enqueue(Datagrama *d) {
         // condicao para fila cheia
 
@@ -34,10 +35,12 @@ bool Fila::enqueue(Datagrama *d) {
     }
 }
 
+// Retorna true caso a fila estiver cheia e false caso contrario
 bool Fila::isEmpty() {
     return this->inicio == this->fim;
 }
 
+// Retira um datagrama da fila. Retorna NULL caso a fila esteja vazia, e retorna o datagrama retirado caso contrario
 Datagrama* Fila::dequeue(){
     if(this->isEmpty()){
         return NULL;
@@ -52,7 +55,7 @@ Datagrama* Fila::dequeue(){
         return datagramaRetirado;
     }
 }
-//!! Ainda tenho que fazer "dar a volta" quando necessário
+
 void Fila::imprimir(){
     cout << "tamanho disponivel - " << this->tamanho << endl << endl;
     cout << "inicio - " << this->inicio << endl << endl;

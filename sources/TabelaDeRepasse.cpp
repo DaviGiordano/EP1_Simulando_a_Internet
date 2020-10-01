@@ -6,12 +6,14 @@ using namespace std;
 
 // CONSTRUTOR E DESTRUTOR ===================================================
 
+// Inicializa TabelaDeRepasse alocando vetores enderecos, adjacentes e settando roteadorPadrao para NULL
 TabelaDeRepasse::TabelaDeRepasse(){
     this->enderecos = new int[MAXIMO_TABELA];
     this->adjacentes = new Roteador*[MAXIMO_TABELA]; //foda de testar o roteador porque ele simplesmente nao existe ainda kk
     this->roteadorPadrao = NULL; //ponteiro para roteador apontando para NULL, check.
 }
 
+// Desaloca os vetores
 TabelaDeRepasse::~TabelaDeRepasse() {
     delete[] this->adjacentes;
     delete[] this->enderecos;
@@ -31,6 +33,7 @@ void TabelaDeRepasse::setPadrao(Roteador *padrao) {
     this->roteadorPadrao = padrao;
 }
 
+// Retorna o roteador ligado ao endereco passado como parametro. Se o endereco nao estiver mapeado, retorna o roteador padrao
 Roteador* TabelaDeRepasse::getDestino(int endereco) {
     for (int i = 0; i < this->quantidadeDeAdjacentes; i++) { //percorra os enderecos mapeados
         if (endereco == this->enderecos[i]) { //se o endereco foi mapeado
@@ -42,6 +45,8 @@ Roteador* TabelaDeRepasse::getDestino(int endereco) {
 
 //OUTROS METODOS=============================================================
 
+// Mapeia um roteador a um endereco na tabela de repasse. Caso for possivel mapear retorna true, caso contrario, false. 
+// Se o endereco ja estiver mapeado, altera o roteador ligado a ele, caso contrario, adiciona um endereco na tabela
 bool TabelaDeRepasse::mapear(int endereco, Roteador *adjacente) {
     if (this->quantidadeDeAdjacentes == MAXIMO_TABELA) {
         // JA FORAM MAPEADOS TODOS OS ENDERECOS POSSIVEIS NA TABELA

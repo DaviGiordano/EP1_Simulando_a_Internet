@@ -27,7 +27,6 @@ Roteador::~Roteador() {
 
 // =========================================================================================
 
-
 // GETTERS =================================================================================
 
 Fila* Roteador::getFila() {
@@ -42,7 +41,19 @@ string Roteador::getUltimoDadoRecebido() {
     return this->ultimoDadoRecebido;
 }
 
-/*ja tinha feito antes, quando tentava testar a TabelaDeRepasse*/
 TabelaDeRepasse* Roteador::getTabela(){
     return this->tabela;
 }
+
+// OUTROS METODOS ==========================================================================
+
+void Roteador::receber(Datagrama *d) {
+
+}
+
+// void Roteador::processar() {
+
+// }
+
+
+// =========================================================================================
