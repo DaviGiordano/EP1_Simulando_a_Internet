@@ -45,7 +45,7 @@ Roteador* TabelaDeRepasse::getDestino(int endereco) {
 
 //OUTROS METODOS=============================================================
 
-// Mapeia um roteador a um endereco na tabela de repasse. Caso for possivel mapear retorna true, caso contrario, false. 
+// Mapeia um roteador a um endereco na tabela de repasse. Caso for possivel mapear retorna true, caso contrario, false.
 // Se o endereco ja estiver mapeado, altera o roteador ligado a ele, caso contrario, adiciona um endereco na tabela
 bool TabelaDeRepasse::mapear(int endereco, Roteador *adjacente) {
     if (this->quantidadeDeAdjacentes == MAXIMO_TABELA) {
@@ -71,7 +71,7 @@ bool TabelaDeRepasse::mapear(int endereco, Roteador *adjacente) {
 
 void TabelaDeRepasse::imprimir(){
     cout << this->quantidadeDeAdjacentes << endl;
-    this->roteadorPadrao->imprimir(); //supondo que um roteador possui um metodo imprimir
+    //this->roteadorPadrao->imprimir(); Nao usar, pois roteador imprime a sua tabela de repasse (ciclico)
     for(int i = 0; i < this->quantidadeDeAdjacentes; i++){
         cout << "Indice - " << i << endl;
         cout << "Endereco - " << this-enderecos[i] << endl;

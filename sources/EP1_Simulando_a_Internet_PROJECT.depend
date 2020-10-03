@@ -1,11 +1,20 @@
 # depslib dependency file v1.0
 1600797592 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\rede.cpp
 
-1600797592 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\roteador.cpp
+1601764413 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\roteador.cpp
+	<iostream>
+	<string>
+	"Roteador.h"
+	"TabelaDeRepasse.h"
+	"Datagrama.h"
+	"Fila.h"
 
-1600797592 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\tabeladerepasse.cpp
+1601759862 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\tabeladerepasse.cpp
+	"TabelaDeRepasse.h"
+	"Roteador.h"
+	<iostream>
 
-1600800298 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\datagrama.cpp
+1601763824 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\datagrama.cpp
 	"Datagrama.h"
 	<iostream>
 	<string>
@@ -22,8 +31,17 @@
 1600818045 c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\fila.h
 	"Datagrama.h"
 
-1601064549 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\fila.cpp
+1601759862 source:c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\fila.cpp
 	"Fila.h"
 	<iostream>
 	<string>
+
+1601166302 c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\tabeladerepasse.h
+	"Roteador.h"
+
+1601759862 c:\users\davig\onedrive\documentos\mat…rias 2020.2\pcs3131\ep1_simulando_a_internet\sources\roteador.h
+	<string>
+	"TabelaDeRepasse.h"
+	"Fila.h"
+	"Datagrama.h"
 

@@ -45,11 +45,15 @@ string Datagrama::getDado(){
 
 // Imprime as informacoes do datagrama
 void Datagrama::imprimir(){
-    cout << "dado - " << this->getDado() << endl;
-    cout << "origem - " << this->getOrigem() << endl;
-    cout << "destino - " << this->getDestino() << endl;
-    cout << "ttl - " << this->getTtl() << endl;
-    cout << "ativo - " << this->ativo() << endl;
-    cout << endl; // '\n'
+    cout << "Origem: "
+        << this->origem
+        << ", Destino: "
+        << this->destino
+        << ",TTL: "
+        << this->ttl
+        << ", "
+        << this->dado
+        << endl;
+
 }
 
