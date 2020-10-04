@@ -79,7 +79,7 @@ void Roteador::processar() {
         else if(datagramaAtual->getDestino() == this->endereco){ //se destino for esse endereco
             this->ultimoDadoRecebido = datagramaAtual->getDado(); //atribuir o dado
             cout << "\tRecebido: " << datagramaAtual->getDado() << endl;
-    
+
             delete datagramaAtual;
 
         }
@@ -95,7 +95,7 @@ void Roteador::processar() {
                 delete datagramaAtual;
             }
         }
-    } 
+    }
 }
 
 

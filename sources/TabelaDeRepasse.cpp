@@ -72,7 +72,13 @@ bool TabelaDeRepasse::mapear(int endereco, Roteador *adjacente) {
 
 void TabelaDeRepasse::imprimir(){
     cout << endl << "== TABELA DE REPASSE IMPRIMIR ==" << endl << endl;
-    cout << "\tRoteador padrao: " << this->roteadorPadrao->getEndereco() <<endl;
+
+    if(this->roteadorPadrao != NULL){
+        cout << "\tRoteador padrao: " << this->roteadorPadrao->getEndereco() <<endl;
+    }else{
+        cout << "\tRoteador padrao: NULL" <<endl;
+    }
+
     cout << "\tQuantidade de adjacentes: " << this->quantidadeDeAdjacentes << endl;
     cout << "\tRoteadores Adjacentes: " << endl;
     for(int i = 0; i < this->quantidadeDeAdjacentes; i++){
