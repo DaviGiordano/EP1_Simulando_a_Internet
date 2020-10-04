@@ -57,14 +57,15 @@ Datagrama* Fila::dequeue(){
 }
 
 void Fila::imprimir(){
-    cout << "tamanho disponivel - " << this->tamanho << endl << endl;
-    cout << "inicio - " << this->inicio << endl << endl;
-    cout << "fim - " << this->fim << endl << endl;
-    cout <<  "Fila, na ordem:" << endl << endl;
+    cout << endl << "== FILA IMPRIMIR ==" << endl << endl;
+    cout << "\ttamanho disponivel - " << this->tamanho << endl << endl;
+    cout << "\tinicio - " << this->inicio << endl << endl;
+    cout << "\tfim - " << this->fim << endl << endl;
+    cout <<  "\tFila, na ordem:" << endl << endl;
 
     for(int i = this->inicio; i != (this->fim);){
 
-        cout <<"Posicao no vetor: " << i << endl;
+        cout <<"\tPosicao " << i << " no vetor: ";
         vetorDeDatagramas[i]->imprimir();
 
         if(i == this->tamanho){
@@ -74,4 +75,6 @@ void Fila::imprimir(){
             i++;
         }
     }
+    cout << endl << "== FIM FILA IMPRIMIR ==" << endl << endl;
+
 }

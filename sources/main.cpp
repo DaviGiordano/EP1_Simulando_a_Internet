@@ -2,40 +2,53 @@
 #include <string>
 #include "Datagrama.h"
 #include "Fila.h"
+#include "Roteador.h"
+#include "TabelaDeRepasse.h"
+
 using namespace std;
 
-//no vídeo sobre construtores e destrutures ele adicionou esses parâmetros. Você sabe o que são?
+
 main(int argc, char **argv){
 
 
 
     //Datagramas dummys
-    Datagrama *pacotePrimeiro = new Datagrama(1,2,78,"Primeiro");
-    Datagrama *pacoteSegundo = new Datagrama(3,4,0,"Segundo");
-    Datagrama *pacoteTerceiro = new Datagrama(2,7,5,"Terceiro");
-    Datagrama *pacoteQuarto = new Datagrama (6,7,1,"Quarto");
-    Datagrama *pacoteQuinto = new Datagrama (9,10,5,"Quinto");
-    Datagrama *d;
-    //fila com tres posicoes validas
-    Fila *filaTeste = new Fila(3);
+    Datagrama *pacotePrimeiro = new Datagrama(1,3,7,"DadoUM");
 
-    cout<< filaTeste->enqueue(pacotePrimeiro)<<endl;
-    cout<<filaTeste->enqueue(pacoteSegundo)<<endl;
-    cout<<filaTeste->enqueue(pacoteTerceiro)<<endl;
-    cout<<filaTeste->enqueue(pacoteQuarto)<<endl; //FALSE esperado, deu true
-    cout<<filaTeste->enqueue(pacoteQuinto)<<endl;
-    /*problema: ele me deixou inserir um quarto pacote*/
-    /*Não me deixou inserir o quinto, bom*/
-    filaTeste->imprimir();
+    Datagrama *pacoteSegundo = new Datagrama(2,4,1,"DadoDOIS");
+
+    Datagrama *pacoteTerceiro = new Datagrama(5,2,2,"DadoTRES");
+
+    Datagrama *pacoteQuarto = new Datagrama (4,5,2,"DadoQUATRO");
+
+    Datagrama *pacoteQuinto = new Datagrama (3,6,5,"DadoCINCO");
+
+    Roteador *roteadorPrimeiro= new Roteador(1);
+    Roteador *roteadorSegundo = new Roteador(2);
+    Roteador *roteadorTerceiro = new Roteador(3);
+    Roteador *roteadorQuarto = new Roteador(4);
 
 
-    filaTeste->dequeue()->imprimir();
-    filaTeste->dequeue()->imprimir();
-    filaTeste->dequeue()->imprimir();
+    roteadorPrimeiro->getTabela()->setPadrao(roteadorSegundo);
+    roteadorPrimeiro->getTabela()->mapear(4,roteadorQuarto);
 
-    d = filaTeste->dequeue();
+    roteadorSegundo->getTabela()->setPadrao(roteadorQuarto);
+    roteadorSegundo->getTabela()->mapear(3,roteadorTerceiro);
 
+    roteadorPrimeiro->receber(pacotePrimeiro);
+    roteadorPrimeiro->receber(pacoteSegundo);
 
+    roteadorSegundo->receber(pacoteTerceiro);
+    roteadorSegundo->receber(pacoteQuarto);
+
+    roteadorPrimeiro->processar();
+    roteadorPrimeiro->processar();
+
+    roteadorSegundo->processar();
+    roteadorSegundo->processar();
+
+    roteadorSegundo->imprimir();
+    roteadorPrimeiro->imprimir();
 
 
 

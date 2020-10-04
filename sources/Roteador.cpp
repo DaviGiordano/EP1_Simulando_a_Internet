@@ -78,7 +78,7 @@ void Roteador::processar() {
         } //se nao morreu
         else if(datagramaAtual->getDestino() == this->endereco){ //se destino for esse endereco
             this->ultimoDadoRecebido = datagramaAtual->getDado(); //atribuir o dado
-            cout << "\tRecebido";
+            cout << "\tRecebido: ";
             datagramaAtual->imprimir();
             delete datagramaAtual;
 
@@ -97,13 +97,14 @@ void Roteador::processar() {
 }
 
 void Roteador::imprimir() {
-
-    cout << "Endereco: " << this->endereco
+    cout << endl << "== ROTEADOR IMPRIMIR ==" << endl << endl;
+    cout << "\tEndereco: " << this->endereco
          << ", Ultimo dado recebido: " << this->ultimoDadoRecebido << endl;
     cout << "FILA:" << endl;
     this->fila->imprimir();
     cout << "TABELA DE REPASSE:" << endl;
     this->tabela->imprimir();
+    cout << endl << "== FIM ROTEADOR IMPRIMIR ==" << endl;
 
 }
 

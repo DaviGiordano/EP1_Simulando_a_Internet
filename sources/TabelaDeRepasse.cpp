@@ -70,12 +70,13 @@ bool TabelaDeRepasse::mapear(int endereco, Roteador *adjacente) {
 }
 
 void TabelaDeRepasse::imprimir(){
-    cout << this->quantidadeDeAdjacentes << endl;
-    //this->roteadorPadrao->imprimir(); Nao usar, pois roteador imprime a sua tabela de repasse (ciclico)
+    cout << endl << "== TABELA DE REPASSE IMPRIMIR ==" << endl << endl;
+    cout << "\tRoteador padrao: " << this->roteadorPadrao->getEndereco() <<endl;
+    cout << "\tQuantidade de adjacentes: " << this->quantidadeDeAdjacentes << endl;
+    cout << "\tRoteadores Adjacentes: " << endl;
     for(int i = 0; i < this->quantidadeDeAdjacentes; i++){
-        cout << "Indice - " << i << endl;
-        cout << "Endereco - " << this-enderecos[i] << endl;
-        cout << "Roteador - ";
-        this->adjacentes[i]->imprimir();
+        cout << "\tIndice: " << i << ", Endereco: " << this->enderecos[i] << endl;
+
+    cout << endl << "== FIM TABELA REPASSE IMPRIMIR ==" << endl << endl;
     }
 }
