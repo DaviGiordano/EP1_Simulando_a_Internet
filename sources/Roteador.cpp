@@ -55,6 +55,11 @@ void Roteador::receber(Datagrama *d) {
     }
 }
 
+/**
+ * Essa funcao processa o primeiro datagrama na fila do roteador (se tiver algum na fila).
+ * Primeiro, processa o datagrama, diminuindo seu ttl em 1, depois checa se ele continua ativo.
+ * Por Ãºltimo, atribui o dado do datagrama ao roteador se ele mesmo for o endereÃ§o e, caso contrÃ¡rio, repassa ele para o destino
+ */
 void Roteador::processar() {
 
     //tentar dequeue da fila do Roteador
@@ -70,24 +75,21 @@ void Roteador::processar() {
 
             delete datagramaAtual; //Delete
 
-        } //se não morreu
-        else if(datagramaAtual->getDestino() == this->endereco){ //se destino for esse endereço
+        } //se nao morreu
+        else if(datagramaAtual->getDestino() == this->endereco){ //se destino for esse endereco
             this->ultimoDadoRecebido = datagramaAtual->getDado(); //atribuir o dado
             cout << "\tRecebido";
             datagramaAtual->imprimir();
             delete datagramaAtual;
 
         }
-        else { //se o destino não for esse endereço
-            Roteador* proximoRoteador = this->tabela->getDestino(datagramaAtual->getDestino()); //descobrir endereço pela tRepasse
+        else { //se o destino nao for esse endereco
+            Roteador* proximoRoteador = this->tabela->getDestino(datagramaAtual->getDestino()); //descobrir endereï¿½o pela tRepasse
 
             if(proximoRoteador){ //se proximo roteador existir
                 cout << "\tEnviado para " << proximoRoteador->endereco << ": ";
                 datagramaAtual->imprimir();
                 proximoRoteador->receber(datagramaAtual); //Enviar para o roteadorDestino
-
-            }else { //se tabelaRepasse retornar NULL, por algum motivo que desconheco
-                delete datagramaAtual;
 
             }
         }
