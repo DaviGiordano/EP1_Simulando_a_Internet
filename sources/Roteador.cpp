@@ -66,7 +66,7 @@ void Roteador::processar() {
     Datagrama* datagramaAtual = this->fila->dequeue();
 
     //Se datagramaAtual existir
-    if(datagramaAtual){
+    if(datagramaAtual != NULL){
         datagramaAtual->processar(); //TTL -= 1
 
         if(!datagramaAtual->ativo()){ //Se morreu
@@ -78,23 +78,26 @@ void Roteador::processar() {
         } //se nao morreu
         else if(datagramaAtual->getDestino() == this->endereco){ //se destino for esse endereco
             this->ultimoDadoRecebido = datagramaAtual->getDado(); //atribuir o dado
-            cout << "\tRecebido: ";
-            datagramaAtual->imprimir();
+            cout << "\tRecebido: " << datagramaAtual->getDado() << endl;
+    
             delete datagramaAtual;
 
         }
         else { //se o destino nao for esse endereco
-            Roteador* proximoRoteador = this->tabela->getDestino(datagramaAtual->getDestino()); //descobrir endere�o pela tRepasse
+            Roteador* proximoRoteador = this->tabela->getDestino(datagramaAtual->getDestino()); //descobrir endereco pela tRepasse
 
-            if(proximoRoteador){ //se proximo roteador existir
-                cout << "\tEnviado para " << proximoRoteador->endereco << ": ";
+            if(proximoRoteador != NULL){ //se proximo roteador existir
+                cout << "\tEnviado para " << proximoRoteador->getEndereco() << ": ";
                 datagramaAtual->imprimir();
                 proximoRoteador->receber(datagramaAtual); //Enviar para o roteadorDestino
 
+            } else {
+                delete datagramaAtual;
             }
         }
-    }
+    } 
 }
+
 
 void Roteador::imprimir() {
     cout << endl << "== ROTEADOR IMPRIMIR ==" << endl << endl;

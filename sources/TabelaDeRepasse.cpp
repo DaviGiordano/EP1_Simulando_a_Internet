@@ -34,6 +34,7 @@ void TabelaDeRepasse::setPadrao(Roteador *padrao) {
 }
 
 // Retorna o roteador ligado ao endereco passado como parametro. Se o endereco nao estiver mapeado, retorna o roteador padrao
+// Se a tabela ainda nao tiver roteador padrao nos seus atributos, retorna NULL
 Roteador* TabelaDeRepasse::getDestino(int endereco) {
     for (int i = 0; i < this->quantidadeDeAdjacentes; i++) { //percorra os enderecos mapeados
         if (endereco == this->enderecos[i]) { //se o endereco foi mapeado
