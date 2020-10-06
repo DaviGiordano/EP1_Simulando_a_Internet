@@ -11,12 +11,12 @@ private:
 public:
     Rede(Roteador **roteadores, int quantidadeDeRoteadores);
     ~Rede();
-    
+
     Roteador *getRoteador(int endereco);
-    
-    void enviar(string texto, Roteador* origem, int destino, int ttl); 
-    void passarTempo(); 
-    void imprimir();
+
+    void enviar(string texto, Roteador* origem, int destino, int ttl);
+    void passarTempo();
+    void imprimir(int endereco);
 };
 
 #endif
