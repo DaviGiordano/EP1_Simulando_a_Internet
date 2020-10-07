@@ -12,6 +12,7 @@ tamanho (tamanho)
 
 Fila::~Fila()
 {
+    delete[] this->vetorDeDatagramas;
 }
 
 // Adiciona um datagrama na fila. Retorna false caso a fila estiver cheia e true se conseguiu adicionar o datagrama
