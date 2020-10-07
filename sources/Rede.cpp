@@ -11,7 +11,7 @@ roteadores (roteadores), quantidadeDeRoteadores (quantidadeDeRoteadores) {
 }
 
 Rede::~Rede() {
-    delete[] roteadores //tem que deletar o ponteiro, nao?
+    //delete[] roteadores; //tem que deletar o ponteiro, nao? Nao
 }
 
 /**
@@ -32,11 +32,13 @@ Roteador* Rede::getRoteador(int endereco){
             return this->roteadores[i];
         }
     }
-    return NULL
+    return NULL;
 }
 //chama o metodo processar de cada roteador dentro da rede, uma única vez
 void Rede::passarTempo(){
+
     for (int i = 0; i < this->quantidadeDeRoteadores; i++){
+
         this->roteadores[i]->processar();
     }
 }

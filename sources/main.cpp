@@ -4,6 +4,7 @@
 #include "Fila.h"
 #include "Roteador.h"
 #include "TabelaDeRepasse.h"
+#include "Rede.h"
 
 using namespace std;
 
@@ -12,30 +13,7 @@ main(int argc, char **argv){
 
 
 
-    //Datagramas dummys
-    Datagrama *pacotePrimeiro = new Datagrama(1,3,7,"DadoUM");
 
-    Datagrama *pacoteSegundo = new Datagrama(2,4,3,"DadoDOIS");
-
-    Datagrama *pacoteTerceiro = new Datagrama(5,1,2,"DadoTRES");
-
-    Datagrama *pacoteQuarto = new Datagrama (4,5,2,"DadoQUATRO");
-
-    Datagrama *pacoteQuinto = new Datagrama (3,6,5,"DadoCINCO");
-
-    Roteador *roteadorPrimeiro= new Roteador(1);
-    Roteador *roteadorSegundo = new Roteador(2);
-    Roteador *roteadorTerceiro = new Roteador(3);
-    Roteador *roteadorQuarto = new Roteador(4);
-
-
-    roteadorPrimeiro->getTabela()->mapear(4,roteadorQuarto);
-
-     roteadorPrimeiro->receber(pacoteSegundo);
-     //roteadorPrimeiro->imprimir();
-     roteadorPrimeiro->processar();
-     roteadorQuarto->processar();
-     cout << roteadorQuarto->getUltimoDadoRecebido() << endl;
     /*
 
     roteadorPrimeiro->receber(pacotePrimeiro);
