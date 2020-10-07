@@ -11,11 +11,11 @@ roteadores (roteadores), quantidadeDeRoteadores (quantidadeDeRoteadores) {
 }
 
 Rede::~Rede() {
-    delete[] roteadores //tem que deletar o ponteiro, nao?
+    delete[] roteadores; //tem que deletar o ponteiro, nao?
 }
 
 /**
- * Cria um datagrama e o direciona para o roteador origem para comecar sua transmissao ate o roteador destino.
+ * Cria um datagrama e o adiciona na fila do roteador origem para comecar sua transmissao ate o roteador destino.
  */
 void Rede::enviar(string texto, Roteador* origem, int destino, int ttl) {
     // criando datagrama
@@ -32,16 +32,17 @@ Roteador* Rede::getRoteador(int endereco){
             return this->roteadores[i];
         }
     }
-    return NULL
+    return NULL;
 }
-//chama o metodo processar de cada roteador dentro da rede, uma única vez
+
+//chama o metodo processar de cada roteador dentro da rede, uma unica vez
 void Rede::passarTempo(){
     for (int i = 0; i < this->quantidadeDeRoteadores; i++){
         this->roteadores[i]->processar();
     }
 }
 
-//Imprime informações básicas sobre a rede, e chama o método imprimir de um roteador especificado
+//Imprime informacoes basicas sobre a rede, e chama o metodo imprimir de um roteador especificado
 //LEMBRAR DE RETIRAR, POR PRECAUCAO
 void Rede::imprimir(int endereco){
     cout << "+++ REDE +++" << endl;
