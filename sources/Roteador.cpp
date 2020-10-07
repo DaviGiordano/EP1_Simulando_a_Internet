@@ -65,8 +65,10 @@ void Roteador::processar() {
     //tentar dequeue da fila do Roteador
     Datagrama* datagramaAtual = this->fila->dequeue();
 
-    //Se datagramaAtual existir
-    if(datagramaAtual != NULL){
+    //Se datagramaAtual existir, ou seja, a fila nao estiver vazia
+    if(datagramaAtual != NULL) {
+        cout << "Roteador " << this->endereco << endl;
+
         datagramaAtual->processar(); //TTL -= 1
 
         if(!datagramaAtual->ativo()){ //Se morreu

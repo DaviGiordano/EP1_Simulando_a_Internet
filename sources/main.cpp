@@ -1,21 +1,21 @@
 #include <iostream>
 #include <string>
 #include "Datagrama.h"
-#include "Datagrama.cpp"
 #include "Fila.h"
-#include "Fila.cpp"
 #include "Roteador.h"
-#include "Roteador.cpp"
 #include "TabelaDeRepasse.h"
-#include "TabelaDeRepasse.cpp"
 #include "Rede.h"
-#include "Rede.cpp"
 
 using namespace std;
 
+#define NUMERO_DE_ROTEADORES_NA_REDE 6
+void telaDeEnviarDatagrama(Rede *rede);
+void enviarDatagrama(int enderecoOrigem, int enderecoDestino, int ttl, string dado, Rede *rede);
+void imprimeMensagemDeErro();
+void telaDePassarTempo(Rede *rede);
+int telaInicial();
 
 main(int argc, char **argv){
-    int vetor[] = {1, 2, 3, 4};
 
     Roteador *roteadorPrimeiro= new Roteador(1);
     Roteador *roteadorSegundo = new Roteador(2);
@@ -61,12 +61,83 @@ main(int argc, char **argv){
 
     Rede* rede = new Rede(vetorDeRoteadores, 6);
 
-    rede->enviar("DadoUm", roteadorPrimeiro, 4, 3);
-    //rede->enviar("DadoDois", roteadorSegundo, 2, 3);
-    //rede->enviar("DadoTres", roteadorTerceiro, 1, 3);
-    //rede->enviar("DadoQuatro", roteadorQuarto, 5, 3);
-    //rede->enviar("DadoCinco", roteadorQuinto, 1, 3);
-    //rede->enviar("DadoSeis", roteadorSexto, 4, 3);
-    rede->passarTempo();
-    rede->imprimir(1);
+    int tela;
+    do {
+        tela = telaInicial();
+        switch (tela)
+        {
+        case 1:
+            /* ENVIAR O DATAGRAMA */
+            telaDeEnviarDatagrama(rede);
+            break;
+        case 2:
+            telaDePassarTempo(rede);
+            break;
+        default:
+            break;
+        }
+    } while (tela != 3);
+    return 0;
 }
+
+int telaInicial() {
+    int tela;
+    cout << "Simulador de Rede" << endl << 
+        "---" << endl << 
+        "1) Enviar um datagrama" << endl <<
+        "2) Passar tempo" << endl <<
+        "3) Sair" << endl <<
+        "Escolha uma opcao: ";
+
+    cin >> tela;
+    cout << endl;
+
+    return tela;
+}
+
+// Imprime as informacoes dessa tela e captura as entradas
+void telaDeEnviarDatagrama(Rede *rede) {
+    int enderecoRoteadorOrigem, enderecoRoteadorDestino, ttl;
+    string mensagem;
+
+    cout << "Endereco do roteador de origem: ";
+    cin >> enderecoRoteadorOrigem;
+    cout << endl;
+
+    cout << "Endereco de destino: ";
+    cin >> enderecoRoteadorDestino;
+    cout << endl;
+
+    cout << "TTL: ";
+    cin >> ttl;
+    cout << endl;
+
+    cout << "Mensagem: ";
+    cin >> mensagem;
+    cout << endl;
+
+    Roteador *origem = rede->getRoteador(enderecoRoteadorOrigem);
+
+    // enviando o datagrama
+    origem != NULL ? rede->enviar(mensagem, origem, enderecoRoteadorDestino, ttl) : imprimeMensagemDeErro();
+}
+
+void imprimeMensagemDeErro() {
+    cout << "Erro: origem desconhecida";
+}
+
+void telaDePassarTempo(Rede *rede) {
+    int tempo, instante;
+    cout << "Quantidade de tempo: ";
+    cin >> tempo;
+    cout << endl;
+
+
+    for (instante = 0; instante < tempo; instante++) {
+        cout << "Instante " << instante << endl << "---" << endl;
+        rede->passarTempo();
+    }
+    
+}
+
+
