@@ -38,7 +38,7 @@ Roteador* Rede::getRoteador(int endereco){
 void Rede::passarTempo(){
 
     for (int i = 0; i < this->quantidadeDeRoteadores; i++){
-
+        cout << "TEST" << endl;
         this->roteadores[i]->processar();
     }
 }
