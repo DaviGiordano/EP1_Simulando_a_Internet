@@ -1,15 +1,21 @@
 #include <iostream>
 #include <string>
 #include "Datagrama.h"
+#include "Datagrama.cpp"
 #include "Fila.h"
+#include "Fila.cpp"
 #include "Roteador.h"
+#include "Roteador.cpp"
 #include "TabelaDeRepasse.h"
+#include "TabelaDeRepasse.cpp"
 #include "Rede.h"
+#include "Rede.cpp"
 
 using namespace std;
 
 
 main(int argc, char **argv){
+    int vetor[] = {1, 2, 3, 4};
 
     Roteador *roteadorPrimeiro= new Roteador(1);
     Roteador *roteadorSegundo = new Roteador(2);
@@ -46,12 +52,12 @@ main(int argc, char **argv){
 
     Roteador** vetorDeRoteadores = new Roteador*[6];
 
-    vetorDeRoteadores[1] = roteadorPrimeiro;
-    vetorDeRoteadores[2] = roteadorSegundo;
-    vetorDeRoteadores[3] = roteadorTerceiro;
-    vetorDeRoteadores[4] = roteadorQuarto;
-    vetorDeRoteadores[5] = roteadorQuinto;
-    vetorDeRoteadores[6] = roteadorSexto;
+    vetorDeRoteadores[0] = roteadorPrimeiro;
+    vetorDeRoteadores[1] = roteadorSegundo;
+    vetorDeRoteadores[2] = roteadorTerceiro;
+    vetorDeRoteadores[3] = roteadorQuarto;
+    vetorDeRoteadores[4] = roteadorQuinto;
+    vetorDeRoteadores[5] = roteadorSexto;
 
     Rede* rede = new Rede(vetorDeRoteadores, 6);
 
@@ -63,6 +69,4 @@ main(int argc, char **argv){
     //rede->enviar("DadoSeis", roteadorSexto, 4, 3);
     rede->passarTempo();
     rede->imprimir(1);
-
-
 }

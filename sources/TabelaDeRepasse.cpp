@@ -83,7 +83,6 @@ void TabelaDeRepasse::imprimir(){
     cout << "\tRoteadores Adjacentes: " << endl;
     for(int i = 0; i < this->quantidadeDeAdjacentes; i++){
         cout << "\tIndice: " << i << ", Endereco: " << this->enderecos[i] << endl;
-
-    cout << endl << "== FIM TABELA REPASSE IMPRIMIR ==" << endl << endl;
     }
+    cout << endl << "== FIM TABELA REPASSE IMPRIMIR ==" << endl << endl;
 }
