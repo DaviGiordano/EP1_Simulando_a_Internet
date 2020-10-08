@@ -9,6 +9,11 @@
 using namespace std;
 
 #define NUMERO_DE_ROTEADORES_NA_REDE 6
+//Devolve um roteador com o endereco especificado
+Roteador* criarRoteador(int endereco);
+void definirPadrao(Roteador* rBase, Roteador* rPadrao);
+void definirAdjacente(Roteador* rBase, int endereco, Roteador* radjacente);
+
 void telaDeEnviarDatagrama(Rede *rede);
 void enviarDatagrama(int enderecoOrigem, int enderecoDestino, int ttl, string dado, Rede *rede);
 void imprimeMensagemDeErro();
@@ -17,48 +22,45 @@ int telaInicial();
 
 main(int argc, char **argv){
 
-    Roteador *roteadorPrimeiro= new Roteador(1);
-    Roteador *roteadorSegundo = new Roteador(2);
-    Roteador *roteadorTerceiro = new Roteador(3);
-    Roteador *roteadorQuarto = new Roteador(4);
-    Roteador *roteadorQuinto = new Roteador(5);
-    Roteador *roteadorSexto = new Roteador(6);
+    //criar os roteadores
+    Roteador* r1 = criarRoteador(1);
+    Roteador* r2 = criarRoteador(2);
+    Roteador* r3 = criarRoteador(3);
+    Roteador* r4 = criarRoteador(4);
+    Roteador* r5 = criarRoteador(5);
+    Roteador* r6 = criarRoteador(6);
 
-    roteadorPrimeiro->getTabela()->mapear(4,roteadorQuarto);
-    roteadorPrimeiro->getTabela()->setPadrao(roteadorSegundo);
+    //definir os roteadores padrão
+    definirPadrao(r1,r2);
+    definirPadrao(r2,r5);
+    definirPadrao(r3,r2);
+    definirPadrao(r4,r5);
+    definirPadrao(r5,r2);
+    definirPadrao(r6,r5);
 
+    //definir os roteadores Ajacentes
+    definirAdjacente(r1,4,r4);
+    definirAdjacente(r2,1,r1);
+    definirAdjacente(r2,3,r3);
+    definirAdjacente(r3,6,r6);
+    definirAdjacente(r4,1,r1);
+    definirAdjacente(r5,4,r4);
+    definirAdjacente(r5,6,r6);
+    definirAdjacente(r6,3,r3);
 
-    roteadorSegundo->getTabela()->mapear(1,roteadorPrimeiro);
-    roteadorSegundo->getTabela()->mapear(3,roteadorTerceiro);
-    roteadorSegundo->getTabela()->setPadrao(roteadorQuinto);
-
-
-    roteadorTerceiro->getTabela()->mapear(6,roteadorSexto);
-    roteadorTerceiro->getTabela()->setPadrao(roteadorSegundo);
-
-
-    roteadorQuarto->getTabela()->mapear(1,roteadorPrimeiro);
-    roteadorQuarto->getTabela()->setPadrao(roteadorQuinto);
-
-
-    roteadorQuinto->getTabela()->mapear(4,roteadorQuarto);
-    roteadorQuinto->getTabela()->mapear(6,roteadorSexto);
-    roteadorQuinto->getTabela()->setPadrao(roteadorSegundo);
-
-
-    roteadorSexto->getTabela()->mapear(3,roteadorTerceiro);
-    roteadorSexto->getTabela()->setPadrao(roteadorQuinto);
-
-
+    //criar vetor de roteadores
     Roteador** vetorDeRoteadores = new Roteador*[6];
 
-    vetorDeRoteadores[0] = roteadorPrimeiro;
-    vetorDeRoteadores[1] = roteadorSegundo;
-    vetorDeRoteadores[2] = roteadorTerceiro;
-    vetorDeRoteadores[3] = roteadorQuarto;
-    vetorDeRoteadores[4] = roteadorQuinto;
-    vetorDeRoteadores[5] = roteadorSexto;
+    //preencher vetor de roteadores
+    vetorDeRoteadores[0] = r1;
+    vetorDeRoteadores[1] = r2;
+    vetorDeRoteadores[2] = r3;
+    vetorDeRoteadores[3] = r4;
+    vetorDeRoteadores[4] = r5;
+    vetorDeRoteadores[5] = r6;
 
+    //r1->imprimir();
+    //criar rede com tais roteadores
     Rede* rede = new Rede(vetorDeRoteadores, 6);
 
     int tela;
@@ -67,7 +69,7 @@ main(int argc, char **argv){
         switch (tela)
         {
         case 1:
-            /* ENVIAR O DATAGRAMA */
+            // ENVIAR O DATAGRAMA
             telaDeEnviarDatagrama(rede);
             break;
         case 2:
@@ -78,12 +80,24 @@ main(int argc, char **argv){
         }
     } while (tela != 3);
     return 0;
+
+}
+
+Roteador* criarRoteador(int endereco){
+    return new Roteador(endereco);
+}
+void definirPadrao(Roteador* rBase, Roteador* rPadrao){
+    rBase->getTabela()->setPadrao(rPadrao);
+}
+
+void definirAdjacente(Roteador* rBase, int endereco, Roteador* rAdjacente){
+    rBase->getTabela()->mapear(endereco, rAdjacente);
 }
 
 int telaInicial() {
     int tela;
-    cout << "Simulador de Rede" << endl << 
-        "---" << endl << 
+    cout << "Simulador de Rede" << endl <<
+        "---" << endl <<
         "1) Enviar um datagrama" << endl <<
         "2) Passar tempo" << endl <<
         "3) Sair" << endl <<
@@ -137,7 +151,7 @@ void telaDePassarTempo(Rede *rede) {
         cout << "Instante " << instante << endl << "---" << endl;
         rede->passarTempo();
     }
-    
+
 }
 
 

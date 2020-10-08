@@ -32,8 +32,8 @@ Roteador* Rede::getRoteador(int endereco) {
     }
     return NULL;
 }
-
 //chama o metodo processar de cada roteador dentro da rede, uma unica vez
+
 void Rede::passarTempo(){
 
     for (int i = 0; i < this->quantidadeDeRoteadores; i++) {

@@ -57,3 +57,61 @@
 	<string>
 	"Roteador.h"
 
+1602187227 source:c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\datagrama.cpp
+	"Datagrama.h"
+	<iostream>
+	<string>
+
+1602187227 c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\datagrama.h
+	<string>
+
+1602187227 source:c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\fila.cpp
+	"Fila.h"
+	<iostream>
+	<string>
+
+1602187227 c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\fila.h
+	"Datagrama.h"
+
+1602187227 source:c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\rede.cpp
+	"Rede.h"
+	"Roteador.h"
+	"Datagrama.h"
+	<string>
+	<iostream>
+
+1602187227 c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\rede.h
+	<string>
+	"Roteador.h"
+
+1602187227 c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\roteador.h
+	<string>
+	"TabelaDeRepasse.h"
+	"Fila.h"
+	"Datagrama.h"
+
+1602187227 c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\tabeladerepasse.h
+	"Roteador.h"
+
+1602187227 source:c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\roteador.cpp
+	<iostream>
+	<string>
+	"Roteador.h"
+	"TabelaDeRepasse.h"
+	"Datagrama.h"
+	"Fila.h"
+
+1602187227 source:c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\tabeladerepasse.cpp
+	"TabelaDeRepasse.h"
+	"Roteador.h"
+	<iostream>
+
+1602189750 source:c:\users\davig\onedrive\햞ea de trabalho\ep1_simulando_a_internet\sources\main.cpp
+	<iostream>
+	<string>
+	"Datagrama.h"
+	"Fila.h"
+	"Roteador.h"
+	"TabelaDeRepasse.h"
+	"Rede.h"
+
