@@ -39,6 +39,7 @@ void Rede::passarTempo(){
     for (int i = 0; i < this->quantidadeDeRoteadores; i++) {
         this->roteadores[i]->processar();
     }
+    cout << endl;
 }
 
 //Imprime informacoes basicas sobre a rede, e chama o metodo imprimir de um roteador especificado

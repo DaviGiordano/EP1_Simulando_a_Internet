@@ -129,15 +129,15 @@ void telaDeEnviarDatagrama(Rede *rede) {
 
     cout << "Endereco do roteador de origem: ";
     cin >> enderecoRoteadorOrigem;
-    cout << endl;
+    //cout << endl;
 
     cout << "Endereco de destino: ";
     cin >> enderecoRoteadorDestino;
-    cout << endl;
+    //cout << endl;
 
     cout << "TTL: ";
     cin >> ttl;
-    cout << endl;
+    //cout << endl;
 
     cout << "Mensagem: ";
     cin >> mensagem;

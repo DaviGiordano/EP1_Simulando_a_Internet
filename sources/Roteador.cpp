@@ -68,7 +68,6 @@ void Roteador::processar() {
     //Se datagramaAtual existir, ou seja, a fila nao estiver vazia
     if(datagramaAtual != NULL) {
         cout << "Roteador " << this->endereco << endl;
-
         datagramaAtual->processar(); //TTL -= 1
 
         if(!datagramaAtual->ativo()){ //Se morreu
