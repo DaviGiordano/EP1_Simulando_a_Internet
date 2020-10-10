@@ -16,7 +16,7 @@ public:
 
     void enviar(string texto, Roteador* origem, int destino, int ttl);
     void passarTempo();
-    void imprimir(int endereco);
+    void imprimir();
 };
 
 #endif

@@ -44,10 +44,9 @@ void Rede::passarTempo(){
 
 //Imprime informacoes basicas sobre a rede, e chama o metodo imprimir de um roteador especificado
 //LEMBRAR DE RETIRAR, POR PRECAUCAO
-void Rede::imprimir(int endereco) {
+void Rede::imprimir() {
     cout << "+++ REDE +++" << endl;
     cout << "\tQuantidade de roteadores: " << this->quantidadeDeRoteadores << endl << endl;
-    roteadores[endereco]->imprimir();
 
 }
 
