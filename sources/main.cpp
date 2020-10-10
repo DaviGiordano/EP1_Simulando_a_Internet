@@ -13,7 +13,7 @@ using namespace std;
 Roteador* criarRoteador(int endereco);
 void definirPadrao(Roteador* rBase, Roteador* rPadrao);
 void definirAdjacente(Roteador* rBase, int endereco, Roteador* radjacente);
-
+void deletador(Roteador *vetorDeRoteadores[], int quantidadeDeRoteadores, Rede *rede);
 void telaDeEnviarDatagrama(Rede *rede);
 void enviarDatagrama(int enderecoOrigem, int enderecoDestino, int ttl, string dado, Rede *rede);
 void imprimeMensagemDeErro();
@@ -79,8 +79,20 @@ main(int argc, char **argv){
             break;
         }
     } while (tela != 3);
-    return 0;
 
+    deletador(vetorDeRoteadores, 6, rede);
+
+    return 0;
+}
+
+void deletador(Roteador *vetorDeRoteadores[], int quantidadeDeRoteadores, Rede *rede) {
+
+    for (int i = 0; i < quantidadeDeRoteadores; i++) {
+        delete vetorDeRoteadores[i];
+    }
+
+    delete[] vetorDeRoteadores;
+    delete rede;
 }
 
 Roteador* criarRoteador(int endereco){
