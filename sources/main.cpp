@@ -30,7 +30,7 @@ main(int argc, char **argv){
     Roteador* r5 = criarRoteador(5);
     Roteador* r6 = criarRoteador(6);
 
-    //definir os roteadores padrão
+    //definir os roteadores padrï¿½o
     definirPadrao(r1,r2);
     definirPadrao(r2,r5);
     definirPadrao(r3,r2);
@@ -86,6 +86,7 @@ main(int argc, char **argv){
 Roteador* criarRoteador(int endereco){
     return new Roteador(endereco);
 }
+
 void definirPadrao(Roteador* rBase, Roteador* rPadrao){
     rBase->getTabela()->setPadrao(rPadrao);
 }
@@ -147,7 +148,7 @@ void telaDePassarTempo(Rede *rede) {
     cout << endl;
 
 
-    for (instante = 0; instante < tempo; instante++) {
+    for (instante = 1; instante <= tempo; instante++) {
         cout << "Instante " << instante << endl << "---" << endl;
         rede->passarTempo();
     }
